@@ -1,6 +1,7 @@
 from routes.dashboard import router as dashboard_router
 from fastapi import FastAPI
 import uvicorn
+import os
 
 app = FastAPI(title="SiteAble API")
 app.include_router(dashboard_router, prefix="/api")

@@ -7,3 +7,4 @@ pytest>=7.0
 httpx>=0.24
 fastapi>=0.95
 uvicorn>=0.22
+rich>=13.0
