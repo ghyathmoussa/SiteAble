@@ -5,7 +5,7 @@ from pydantic import BaseModel
 
 from core.storage import get_scan_results
 
-router = APIRouter(title="SiteAble Dashboard")
+router = APIRouter()
 
 
 class ScanEntry(BaseModel):

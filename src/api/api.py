@@ -3,7 +3,11 @@ from fastapi import FastAPI
 import uvicorn
 import os
 
-app = FastAPI(title="SiteAble API")
+app = FastAPI(
+    title="SiteAble API",
+    description="API for SiteAble accessibility scanning service",
+    version="1.0.0"
+)
 app.include_router(dashboard_router, prefix="/api")
 
 @app.get("/")
