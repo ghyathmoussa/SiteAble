@@ -21,17 +21,19 @@ Key features
 This repository contains an example scanner that's intentionally small and extendable.
 
 Table of contents
-- [Quickstart](#quickstart)
-- [How it works (overview)](#how-it-works-overview)
-- [CLI usage](#cli-usage)
-- [API usage](#api-usage)
-- [Analyzer plugins](#analyzer-plugins)
-- [Fixes & AI suggestions](#fixes--ai-suggestions)
-- [Persistence & Dashboard](#persistence--dashboard)
-- [Development & Tests](#development--tests)
-- [Extending SiteAble](#extending-siteable)
-- [Environment variables](#environment-variables)
-- [License](#license)
+- [SiteAble — Accessibility Scanner for Small Websites](#siteable--accessibility-scanner-for-small-websites)
+  - [Supported Python Versions](#supported-python-versions)
+  - [Quickstart](#quickstart)
+  - [How it works (overview)](#how-it-works-overview)
+  - [CLI usage](#cli-usage)
+  - [API usage](#api-usage)
+  - [Analyzer plugins](#analyzer-plugins)
+  - [Fixes \& AI suggestions](#fixes--ai-suggestions)
+  - [Persistence \& Dashboard](#persistence--dashboard)
+  - [Development \& Tests](#development--tests)
+  - [Extending SiteAble](#extending-siteable)
+  - [Environment variables](#environment-variables)
+  - [License](#license)
 
 ---
 
@@ -233,4 +235,3 @@ This project is distributed under the terms in `LICENSE`.
 ---
 
 Want help? Open an issue, or submit a PR that improves analyzers, CLI UX, or the UI dashboard. See `todo.txt` for planned enhancements.
-# SiteAble
