@@ -39,10 +39,21 @@ jobs:
         env:
           PYTHONPATH: src
         run: |
-          pytest --cov --junitxml=junit.xml -o junit_family=legacy
+          pytest --cov --cov-report=xml --junitxml=junit.xml -o junit_family=legacy
+      
+      - name: Upload coverage to Codecov
+        if: ${{ !cancelled() }}
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coverage.xml
+          fail_ci_if_error: true
       
       - name: Upload test results to Codecov
         if: ${{ !cancelled() }}
-        uses: codecov/test-results-action@v1
+        uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./junit.xml
+          report_type: test_results
+          fail_ci_if_error: false
