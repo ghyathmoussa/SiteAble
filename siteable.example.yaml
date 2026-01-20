@@ -1,0 +1,27 @@
+# SiteAble Example Configuration
+# Copy to siteable.yaml and customize as needed
+
+scan:
+  concurrency: 10 # Number of concurrent requests
+  max_pages: 200 # Maximum pages to scan
+  delay: 0.0 # Delay between requests (seconds)
+  rate_limit: 0.0 # Max requests per second (0 = unlimited)
+  timeout: 10.0 # Request timeout (seconds)
+  respect_robots: true # Respect robots.txt rules
+
+analyzers:
+  exclude: [] # Analyzers to skip, e.g., ['contrast', 'skip_link']
+  wcag_level: AA # WCAG level: AA or AAA
+
+output:
+  format: pretty # Output format: pretty, json, html
+  path: null # Output file path (null = stdout)
+  html_path: null # HTML report path
+
+ai:
+  enabled: false # Enable AI suggestions
+  model: gpt-3.5-turbo # OpenAI model to use
+
+database:
+  path: null # SQLite database path
+  auto_save: false # Automatically save results
