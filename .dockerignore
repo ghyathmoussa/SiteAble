@@ -1,0 +1,62 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv
+venv
+ENV
+env
+.eggs
+*.egg-info
+*.egg
+dist
+build
+.mypy_cache
+.pytest_cache
+.ruff_cache
+.coverage
+htmlcov
+.tox
+.nox
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+*~
+
+# Documentation
+docs
+*.md
+!README.md
+
+# Tests (not needed in production image)
+tests
+pytest.ini
+
+# Development files
+.pre-commit-config.yaml
+.editorconfig
+Makefile
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Data (mount as volume instead)
+data
+
+# Misc
+*.log
+*.tmp
+.DS_Store
+Thumbs.db

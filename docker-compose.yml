@@ -1,0 +1,55 @@
+version: "3.8"
+
+services:
+  siteable-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: siteable-api
+    ports:
+      - "${API_PORT:-8000}:8000"
+    volumes:
+      - ./data:/app/data
+      - ./src:/app/src:ro # Mount source for development (read-only)
+    environment:
+      - API_HOST=0.0.0.0
+      - API_PORT=8000
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+      - PYTHONPATH=/app/src
+    restart: unless-stopped
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://localhost:8000/')",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # Optional: CLI scanner as a one-off service
+  siteable-cli:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: siteable-cli
+    volumes:
+      - ./data:/app/data
+      - ./output:/app/output
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - PYTHONPATH=/app/src
+    entrypoint: ["python", "-m", "ai.accessibility.cli"]
+    profiles:
+      - cli # Only run when explicitly requested
+
+volumes:
+  data:
+
+networks:
+  default:
+    name: siteable-network
