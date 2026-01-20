@@ -48,8 +48,6 @@ pytest.ini
 Makefile
 
 # Environment
-.env
-.env.*
 !.env.example
 
 # Data (mount as volume instead)
